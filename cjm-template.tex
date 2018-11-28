@@ -16,7 +16,7 @@
 %\RequirePackage{hyperref}
 
 % will be filled by editor:
-\pubyear{2014}
+\pubyear{2018}
 \volume{0}
 \issue{0}
 \firstpage{1}
@@ -32,28 +32,31 @@
 \begin{frontmatter}
 
 % "Title of the Paper"
-\title{???\thanksref{t1}}
-\thankstext{t1}{???}
-\runtitle{???}
+\title{???\protect\thanksref{T1}}
+\thankstext{T1}{???}
 
-% indicate corresponding author with \corref{}
-% \author{\fnms{John} \snm{Smith}\thanksref{t2}\corref{}\ead[label=e1]{smith@foo.com}\ead[label=e2,url]{www.foo.com}}
-% \thankstext{t2}{Thanks to somebody}
-% \address{line 1\\ line 2\\ \printead{e1}\\ \printead{e2}}
+\begin{aug}
+% indicate corresponding author with \thanksref{}
+% \author{\fnms{John} \snm{Smith}\thanksref{t2}\ead[label=e1]{smith@foo.com}\ead[label=e2,url]{www.foo.com}}
+% \thankstext{t2}{Corresponding author.}
+% \address{line 1\\ line 2\\ \printead{e1}\\\printead{e2}}
 
 \author{\fnms{???} \snm{???}\ead[label=e1]{???}}
-\address{???\printead{e1}}
+\address{???\\\printead{e1}}
+%\author{\fnms{???} \snm{???}\thanksref{t2}\ead[label=e2]{???}}
+%\address{???\\\printead{e2}}
 %\and
-%\author{\fnms{???} \snm{???}\ead[label=e2]{???}}
-%\address{???\printead{e2}}
-
-\runauthor{???}
+%\author{\fnms{???} \snm{???}%
+%        \ead[label=e3]{???}%
+%        \ead[label=u1,url]{???}}
+%\address{???\\\printead{e3}\\\printead{u1}}
+%\thankstext{t2}{Corresponding author.}
+\end{aug}
+% history:
+%\received{\sday{3} \smonth{1} \syear{2018}}
 
 %\begin{abstract}
 %\end{abstract}
-
-% history:
-% \received{\smonth{1} \sday{1}, \syear{0000}}
 
 %\tableofcontents
 

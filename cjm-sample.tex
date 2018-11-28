@@ -3,10 +3,9 @@
 
 \documentclass[cjm]{ipart}
 
-\RequirePackage[OT1]{fontenc}
 \RequirePackage{amsthm,amsmath,amssymb}
 \RequirePackage[numbers,square]{natbib} %
-\RequirePackage[colorlinks]{hyperref}
+\RequirePackage{hyperref}
 
 \newtheorem{thm}{Theorem}
 \def\SM#1#2{\sum_{#1\in #2}}
@@ -14,50 +13,40 @@
 \def\FR#1#2{{\frac{#1}{#2}}}
 
 % settings
-\pubyear{0000}
+\pubyear{2018}
 \volume{0}
 \issue{0}
 \firstpage{1}
 \lastpage{9}
-
-\received{\smonth{12} \sday{7}, \syear{2012}}
-
 %\arxiv{}
 
 \begin{document}
 
 \begin{frontmatter}
-\title{A sample document\thanksref{T1}}
-\runtitle{A sample document}
+\title{A sample document\protect\thanksref{T1}}
 \thankstext{T1}{Footnote to the title with the `thankstext' command.}
-\runtitle{A sample document}
 
 \begin{aug}
-\author{\fnms{First} \snm{Author}\thanksref{t1,t2}\ead[label=e1]{first@somewhere.com}},
-\address{Address of the First author\\
-usually few lines long\\
-\printead{e1}}
-\author{\fnms{Second} \snm{Author}\thanksref{t3}\ead[label=e2]{second@somewhere.com}}
-\address{Address of the Second author\\
-usually few lines long\\
-\printead{e2}}
-\and
-\author{\fnms{Third} \snm{Author}
-\ead[label=e3]{third@somewhere.com}
-\ead[label=u1,url]{www.foo.com}}
-\address{Address of the Third author\\
-usually few lines long\\
-\printead{e3}\\
-\printead{u1}}
-
-\thankstext{t1}{Some comment.}
-\thankstext{t2}{First supporter of the project.}
-\thankstext{t3}{Second supporter of the project.}
-\runauthor{First Author et al.}
-
-\affiliation{Some University and Another University}
-
+    \author{\fnms{First} \snm{Author}\thanksref{t2}\ead[label=e1]{first@somewhere.com}},
+    \address{Address of the First Author\\
+             Country\\
+             \printead{e1}}
+    \author{\fnms{Second} \snm{Author}\ead[label=e2]{second@somewhere.com}}
+    \address{Address of the Second Author\\
+             Country\\
+             \printead{e2}}
+    \and
+    \author{\fnms{Third Name} \snm{Author}
+            \ead[label=e3]{third@somewhere.com}%
+            \ead[label=u1,url]{http://www.foo.com}}
+    \address{Address of the Third Author\\
+             Country\\
+             \printead{e3}\\
+             \printead{u1}}
+    \thankstext{t2}{Corresponding author.}
 \end{aug}
+%
+\received{\sday{3} \smonth{1} \syear{2018}}
 
 \begin{abstract}
 The abstract should summarize the contents of the paper.
@@ -76,8 +65,9 @@ your own.
 \kwd[; secondary ]{00K02}
 \end{keyword}
 
+%%  Upper case for every keyword
 \begin{keyword}
-\kwd{sample}
+\kwd{Sample}
 \kwd{\LaTeXe}
 \end{keyword}
 \end{frontmatter}
@@ -156,6 +146,29 @@ or
 Remember that a letter like       $x$
 is a formula when it denotes a mathematical symbol, and should
 be treated as one.
+
+\begin{table*}
+\caption{The spherical case ($I_1=0$, $I_2=0$)}\label{sphericcase}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}crrrrc}
+\hline
+\hline
+ Equil. Points & \multicolumn{1}{c}{$x$} & \multicolumn{1}{c}{$y$} & \multicolumn{1}{c}{$z$} & \multicolumn{1}{c}{$C$} &
+S \\
+\hline
+$L_1$ & $-$2.485252241 & 0.000000000 & 0.017100631 & 8.230711648 & U \\
+$L_2$ &    0.000000000 & 0.000000000 & 3.068883732 & 0.000000000 & S \\
+$L_3$ &    0.009869059 & 0.000000000 & 4.756386544 & $-$0.000057922 & U \\
+$L_4$ &    0.210589855 & 0.000000000 & $-$0.007021459 & 9.440510897 & U \\
+$L_5$ &    0.455926604 & 0.000000000 & $-$0.212446624 & 7.586126667 & U \\
+$L_6$ &    0.667031314 & 0.000000000 & 0.529879957 & 3.497660052 & U \\
+$L_7$ &    2.164386674 & 0.000000000 & $-$0.169308438 & 6.866562449 & U \\
+$L_8$ &    0.560414471 & 0.421735658 & $-$0.093667445 & 9.241525367 & U \\
+$L_9$ &    0.560414471 & $-$0.421735658 & $-$0.093667445 & 9.241525367 & U\\
+$L_{10}$ & 1.472523232 & 1.393484549 & $-$0.083801333 & 6.733436505 & U \\
+$L_{11}$ & 1.472523232 & $-$1.393484549 & $-$0.083801333 & 6.733436505 & U
+\\ \hline
+\end{tabular*}
+\end{table*}
 
 
 \section{Notes}
@@ -243,7 +256,7 @@ You can even display poetry.
 
 Mathematical formulas may also be displayed.  A displayed formula is
 one-line long; multiline formulas require special formatting
-instructions
+instructions.
    \[  x' + y^{2} = z_{i}^{2}.\]
 Don't start a paragraph with a displayed equation, nor make
 one a paragraph by itself.
@@ -261,32 +274,8 @@ Obvious.
 \end{proof}
 
 \section{Tables and figures}
-Cross reference to labelled table: As you can see in Table~\ref{sphericcase} on
-page~\pageref{sphericcase} and also in Table~\ref{parset} on page~\pageref{parset}.
-
-
-\begin{table*}
-\caption{The spherical case ($I_1=0$, $I_2=0$)}\label{sphericcase}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}crrrrc@{}}
-\hline
-Points & \multicolumn{1}{c}{$x$} & \multicolumn{1}{c}{$y$} & \multicolumn{1}{c}{$z$} & \multicolumn{1}{c}{$C$} &S \\
-\hline
-$L_1$ & $-$2.485252241 & 0.000000000 & 0.017100631 & 8.230711648 & U \\
-$L_2$ &    0.000000000 & 0.000000000 & 3.068883732 & 0.000000000 & S \\
-$L_3$ &    0.009869059 & 0.000000000 & 4.756386544 & $-$0.000057922 & U \\
-$L_4$ &    0.210589855 & 0.000000000 & $-$0.007021459 & 9.440510897 & U \\
-$L_5$ &    0.455926604 & 0.000000000 & $-$0.212446624 & 7.586126667 & U \\
-$L_6$ &    0.667031314 & 0.000000000 & 0.529879957 & 3.497660052 & U \\
-$L_7$ &    2.164386674 & 0.000000000 & $-$0.169308438 & 6.866562449 & U \\
-$L_8$ &    0.560414471 & 0.421735658 & $-$0.093667445 & 9.241525367 & U \\
-$L_9$ &    0.560414471 & $-$0.421735658 & $-$0.093667445 & 9.241525367 & U
-\\
-$L_{10}$ & 1.472523232 & 1.393484549 & $-$0.083801333 & 6.733436505 & U \\
-$L_{11}$ & 1.472523232 & $-$1.393484549 & $-$0.083801333 & 6.733436505 & U
-\\ \hline
-\end{tabular*}
-\end{table*}
-
+Cross references to labelled table: As you can see in Table~\ref{sphericcase}
+and also in Table~\ref{parset}.
 
 A major
 point of difference lies in the value of the specific production rate $\pi$ for
@@ -313,7 +302,7 @@ in steady state continuous culture conditions, and with $\mu$ described by a Mon
 \begin{equation}
     C_{s}  =  K_{M} \frac{\mu/\mu_{x}}{1-\mu/\mu_{x}} \label{cs}
 \end{equation}
-Pirt \& Rhigelato determined $\pi$ for $\mu$ between
+Pirt and Rhigelato determined $\pi$ for $\mu$ between
 $0.023$ and $0.086$ h$^{-1}$.
 They also reported a value $\mu_{x} \approx 0.095$
 h$^{-1}$, so that for their experiments $\mu/\mu_{x}$ is in the range
@@ -324,14 +313,14 @@ with the above equation $0.3 < C_{s} < 9$ g/L. This agrees well with
 the work of  \cite{4}, who reported that penicillin biosynthesis
 repression only occurs at glucose concentrations from $C_{s}=10$ g/L on.
 The conclusion is that the glucose concentrations in the experiments of
-Pirt \& Rhigelato probably were too low for glucose repression to be
-detected. The experimental data published by Ryu \& Hospodka
+Pirt and Rhigelato probably were too low for glucose repression to be
+detected. The experimental data published by Ryu and Hospodka
 are not detailed sufficiently to permit a similar analysis.
 
 \begin{table}
 \centering
 \tablewidth=70mm
-\caption{Parameter sets used by Bajpai \& Reu\ss}\label{parset}
+\caption{Parameter sets used by Bajpai and Reu\ss}\label{parset}
 \begin{tabular*}{\tablewidth}{@{\extracolsep{\fill}}lrll@{}}
 \hline
 \multicolumn{2}{l}\textit{Parameter} & \textit{Set 1} & \textit{Set 2}\\
@@ -349,7 +338,7 @@ $m_{s}$             & [g/g DM h]  & 0.014       & 0.029         \\
 \end{tabular*}
 \end{table}
 
-Bajpai \& Reu\ss\ decided to disregard the
+Bajpai and Reu\ss\ decided to disregard the
 differences between time constants for the two regulation mechanisms
 (glucose repression or inhibition) because of the
 relatively very long fermentation times, and therefore proposed a Haldane
@@ -361,12 +350,13 @@ remaining substrate is fed at a constant rate, a considerable and
 unrealistic amount of penicillin is
 produced when the glucose concentration is still very high
 \cite{2,3,4}.
-Simulations with the Bajpai \& Reu\ss\ model correctly predict almost
+Simulations with the Bajpai  and  Reu\ss\ model correctly predict almost
 no penicillin production in similar conditions.
 
-\begin{figure} % figuur 1
+\begin{figure}
 \centering
 \fbox{\makebox[5cm][c]{Picture}\rule[-1.5cm]{0pt}{3cm}}
+%\includegraphics{}
 \caption{Pathway of the penicillin G biosynthesis.}\label{penG}
 \end{figure}
 
@@ -398,8 +388,7 @@ Two equations:
 \end{equation}
 and
 \begin{equation}
-    G = \frac{P_{\rm opt} - P_{\rm ref}}{P_{\rm ref}} \mbox{\ }100 \mbox{\
-    }(\%).
+    G = \frac{P_{\rm opt} - P_{\rm ref}}{P_{\rm ref}} \mbox{\ }100 \mbox{\ }(\%).
 \end{equation}
 
 Long equation:
@@ -505,6 +494,7 @@ lattices.
 J. E. Humphreys,  \textit{Reflection Groups and Coxeter Groups}.
 Cambridge Univ. Press. (1992).
 \MR{1066460}
+
 \end{thebibliography}
 
 \end{document}
