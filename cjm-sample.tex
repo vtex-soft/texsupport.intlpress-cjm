@@ -1,18 +1,19 @@
-%% it's a sample file!
-%% please use corressponding template 
+%% It's a sample file!
+%% Please use corressponding template
 
 \documentclass[cjm]{ipart}
 
 \RequirePackage{amsthm,amsmath,amssymb}
-\RequirePackage[numbers,square]{natbib} %
 \RequirePackage{hyperref}
 
+\startlocaldefs
 \newtheorem{thm}{Theorem}
 \def\SM#1#2{\sum_{#1\in #2}}
 \def\FL#1{\left\lfloor #1 \right\rfloor}
 \def\FR#1#2{{\frac{#1}{#2}}}
+\endlocaldefs
 
-% settings
+% Settings
 \pubyear{2018}
 \volume{0}
 \issue{0}
@@ -36,7 +37,7 @@
              Country\\
              \printead{e2}}
     \and
-    \author{\fnms{Third Name} \snm{Author}
+    \author{\fnms{Third} \snm{Author}
             \ead[label=e3]{third@somewhere.com}%
             \ead[label=u1,url]{http://www.foo.com}}
     \address{Address of the Third Author\\
@@ -70,6 +71,7 @@ your own.
 \kwd{Sample}
 \kwd{\LaTeXe}
 \end{keyword}
+
 \end{frontmatter}
 
 \section{Ordinary text}
@@ -256,7 +258,7 @@ You can even display poetry.
 
 Mathematical formulas may also be displayed.  A displayed formula is
 one-line long; multiline formulas require special formatting
-instructions.
+instructions
    \[  x' + y^{2} = z_{i}^{2}.\]
 Don't start a paragraph with a displayed equation, nor make
 one a paragraph by itself.
@@ -274,7 +276,7 @@ Obvious.
 \end{proof}
 
 \section{Tables and figures}
-Cross references to labelled table: As you can see in Table~\ref{sphericcase}
+Cross references to labelled tables you can see in Table~\ref{sphericcase}
 and also in Table~\ref{parset}.
 
 A major
@@ -293,7 +295,7 @@ In other words, glucose represses (and not inhibits) the penicillin
 biosynthesis.
 
 These findings do not contradict the results of
-\cite{1}  and of \cite{4} which were obtained for
+\cite{1} and of \cite{4} which were obtained for
 continuous culture fermentations.
 Because for high values of the specific
 growth rate $\mu$ it is most likely (as shall be discussed below) that
@@ -310,7 +312,7 @@ of $0.24$ to $0.9$.
 Substituting $K _M$ in Eq. (\ref{cs}) by
 the value $K_{M}=1$ g/L as used by \cite{1}, one finds
 with the above equation $0.3 < C_{s} < 9$ g/L. This agrees well with
-the work of  \cite{4}, who reported that penicillin biosynthesis
+the work of \cite{4}, who reported that penicillin biosynthesis
 repression only occurs at glucose concentrations from $C_{s}=10$ g/L on.
 The conclusion is that the glucose concentrations in the experiments of
 Pirt and Rhigelato probably were too low for glucose repression to be
@@ -322,6 +324,7 @@ are not detailed sufficiently to permit a similar analysis.
 \tablewidth=70mm
 \caption{Parameter sets used by Bajpai and Reu\ss}\label{parset}
 \begin{tabular*}{\tablewidth}{@{\extracolsep{\fill}}lrll@{}}
+\hline
 \hline
 \multicolumn{2}{l}\textit{Parameter} & \textit{Set 1} & \textit{Set 2}\\
 \hline
@@ -348,9 +351,8 @@ It is interesting that simulations with the \cite{4} model for the
 initial conditions given by these authors indicate that, when the
 remaining substrate is fed at a constant rate, a considerable and
 unrealistic amount of penicillin is
-produced when the glucose concentration is still very high
-\cite{2,3,4}.
-Simulations with the Bajpai  and  Reu\ss\ model correctly predict almost
+produced when the glucose concentration is still very high \cite{2,3,4}.
+Simulations with the Bajpai and Reu\ss\ model correctly predict almost
 no penicillin production in similar conditions.
 
 \begin{figure}
@@ -362,7 +364,6 @@ no penicillin production in similar conditions.
 
 Sample of cross-reference to figure.
 Figure~\ref{penG} shows that is not easy to get something on paper.
-
 
 
 \section{Headings}
@@ -446,7 +447,7 @@ and denote it by
 \mathcal{P}=\bigl(j_{k,1},j_{k,2},\dots,j_{k,m(k)}\bigr). \label{path}
 \end{equation}
 
-Sample of cross-reference to the formula \ref{path} in Appendix \ref{app}.
+Sample of cross-reference to the formula \ref{path} in Appendix~\ref{app}.
 
 \section*{Acknowledgements}
 And this is an acknowledgements section with a heading that was produced by the
@@ -481,15 +482,14 @@ ad-nilpotent ideals of a Borel subalgebra. \textit{J. Algebra} \textbf{225} (200
 ad-nilpotent ideals of a Borel subalgebra II. \textit{J. Algebra} \textbf{258} (2002), 112--121.
 \MR{1958899}
 
-
-%b8 ###
+%b6 ###
 \bibitem{8}
 R. P. Dilworth,  Proof of a conjecture on finite modular
 lattices.
 \textit{Annals Math.} \textbf{60} (1954), 359--364.
 \MR{0063348}
 
-%b9 ###
+%b7 ###
 \bibitem{9}
 J. E. Humphreys,  \textit{Reflection Groups and Coxeter Groups}.
 Cambridge Univ. Press. (1992).
