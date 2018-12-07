@@ -1,11 +1,10 @@
-# LaTeX author support for the International Press journal *Cambridge Journal of Mathematics* (*CJM*)
+# International Press journal CJM author support
 
 ## Table of Contents
 
 * [About](#about)
 * [Package content](#package-content)
 * [Setup](#setup)
-* [Options](#options)
 * [Recomended usage of `ipart` package](#recomended-usage-of-ipart-package)
 * [Submission](#submission)
 * [Bug reports](#bug-reports)
@@ -26,7 +25,7 @@ The following files are given in the repository (or directly in `*.zip` archive)
   and one of provided BibTeX styles allows you to get the final format of the bibliography.
 * `cjm-template.tex` - topmatter template (should be used for article preparation);
 * `cjm-sample.tex` - journal sample article;
-* `cjm-sample.pdf` - journal sample article (PDF file);
+* `cjm-sample.pdf` - journal sample article (`PDF` file);
 
 [^1]: The following link provides information about BibTeX usage: [http://www.bibtex.org/Using/](http://www.bibtex.org/Using/).
 
@@ -42,9 +41,30 @@ Use `cjm-template.tex` as a template.
 
 ### Document class options
 
-For the CJM journal `cjm` option must be set in a `\documentclass[]{ipart}`:
+For the CJM journal `cjm` option must be set
+in a `\documentclass[]{ipart}`:
 ```latex
 \documentclass[cjm]{ipart}
+```
+
+For bibliography references output and citations a `natbib` package
+is loaded by default with the following options:
+```latex
+\usepackage[numbers,square]{natbib}
+```
+It provides numbered citations.
+
+In case author-year citation is required, provide the `authoryear` option:
+```latex
+\documentclass[cjm,authoryear]{ipart}
+```
+All `natbib` package options can be provided in this way.
+
+In case some other bibliography package is used
+which is not compatible with `natbib` package,
+one can disable the latter with the option `nonatbib`:
+```latex
+\documentclass[cjm,nonatbib]{ipart}
 ```
 
 ### LaTeX document preamble content
@@ -58,52 +78,51 @@ The preamble of your LaTeX document should look like this:
 
 \begin{document}
 
-    \begin{frontmatter}
+\begin{frontmatter}
 
-        \title{A Sample Document\protect\thanksref{T1}}
-        \thankstext{T1}{Footnote to the title with the `thankstext' command.}
+\title{A Sample Document\protect\thanksref{T1}}
+\thankstext{T1}{Footnote to the title with the `thankstext' command.}
 
-        \begin{aug}
-            \author{\fnms{First} \snm{Author}\thanksref{t2}\ead[label=e1]{first@somewhere.com}},
-            \address{Address of the First Author\\
-                     Country\\
-                     \printead{e1}}
-            \author{\fnms{Second} \snm{Author}\ead[label=e2]{second@somewhere.com}}
-            \address{Address of the Second authors\\
-                     Country\\
-                     \printead{e2}}
-            \and
-            \author{\fnms{Third} \snm{Author}
-                    \ead[label=e3]{third@somewhere.com}%
-                    \ead[label=u1,url]{http://www.foo.com}}
-            \address{Address of the Third author\\
-                     Country\\
-                     \printead{e3}\\
-                     \printead{u1}}
+\begin{aug}
+\author{\fnms{First} \snm{Author}\thanksref{t2}\ead[label=e1]{first@somewhere.com}},
+\address{Address of the First Author\\
+         Country\\
+         \printead{e1}}
+\author{\fnms{Second} \snm{Author}\ead[label=e2]{second@somewhere.com}}
+\address{Address of the Second Author\\
+         Country\\
+         \printead{e2}}
+\and
+\author{\fnms{Third} \snm{Author}
+        \ead[label=e3]{third@somewhere.com}%
+        \ead[label=u1,url]{http://www.foo.com}}
+\address{Address of the Third Author\\
+         Country\\
+         \printead{e3}\\
+         \printead{u1}}
+\thankstext{t2}{Footnote to the first author with the `thankstext' command.}
+\end{aug}
 
-            \thankstext{t2}{Footnote to the first author with the `thankstext' command.}
-        \end{aug}
+\begin{abstract}
+...
+\end{abstract}
 
-        \begin{abstract}
-            ...
-        \end{abstract}
+\begin{keyword}[class=AMS]  % please indicate appropriate AMS codes
+\kwd[Primary ]{00K00}
+\kwd{00K01}
+\kwd[; secondary ]{00K02}
+\end{keyword}
 
-        \begin{keyword}[class=AMS]  % please indicate appropriate AMS codes
-            \kwd[Primary ]{00K00}
-            \kwd{00K01}
-            \kwd[; secondary ]{00K02}
-        \end{keyword}
+\begin{keyword}
+\kwd{Sample}
+\kwd{\LaTeX}
+\end{keyword}
 
-        \begin{keyword}
-            \kwd{sample}
-            \kwd{\LaTeX}
-        \end{keyword}
+\tableofcontents
 
-        \tableofcontents
+\end{frontmatter}
 
-    \end{frontmatter}
-
-    Your publication content
+Your publication content
 
 \end{document}
 ```
@@ -116,7 +135,7 @@ If `hyperref` package is used, they will be made into hyperlinks;
 
 ## Submission
 
-Submit one single file as a zip archive.
+Submit one single file as a `ZIP` archive.
 Pack your root folder `<your-project-name>` with files and subfolders.
 
 ## Bug reports

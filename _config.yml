@@ -1,4 +1,6 @@
 title: International Press journal CJM author support
-description: TeX related material for the manuscript preparation
+description: TeX related material for the manuscript preparation for the
+             International Press journal Cambridge Journal of Mathematics
+             (CJM)
 show_downloads: true
-theme: jekyll-theme-minimal
+theme: jekyll-theme-tactile
