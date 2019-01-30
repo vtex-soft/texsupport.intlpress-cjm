@@ -80,7 +80,7 @@ The preamble of your LaTeX document should look like this:
 
     \begin{frontmatter}
 
-        \title{A Sample Document\protect\thanksref{T1}}
+        \title{Title\protect\thanksref{T1}}
         \thankstext{T1}{Footnote to the title with the `thankstext' command.}
 
         \begin{aug}
@@ -88,7 +88,7 @@ The preamble of your LaTeX document should look like this:
             \address{Address of the First Author\\
                      Country\\
                      \printead{e1}}
-            \author{\fnms{Second} \snm{Author}\ead[label=e2]{second@somewhere.com}}
+            \author{\fnms{Second} \snm{Author}\ead[label=e2]{second@somewhere.com}},
             \address{Address of the Second Author\\
                      Country\\
                      \printead{e2}}

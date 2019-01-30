@@ -1,5 +1,5 @@
-%% It's a sample file!
-%% Please use corressponding template
+%%  It's a sample file!
+%%  Please use corressponding template
 
 \documentclass[cjm]{ipart}
 
@@ -7,24 +7,26 @@
 \RequirePackage{hyperref}
 
 \startlocaldefs
-\newtheorem{thm}{Theorem}
+%\numberwithin{equation}{section}
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
 \def\SM#1#2{\sum_{#1\in #2}}
 \def\FL#1{\left\lfloor #1 \right\rfloor}
 \def\FR#1#2{{\frac{#1}{#2}}}
 \endlocaldefs
 
-% Settings
+%%  Settings
 \pubyear{2018}
 \volume{0}
 \issue{0}
 \firstpage{1}
 \lastpage{9}
-%\arxiv{}
+\arxiv{0000.0000}
 
 \begin{document}
 
 \begin{frontmatter}
-\title{A sample document\protect\thanksref{T1}}
+\title[A sample document]{A sample document\protect\thanksref{T1}}
 \thankstext{T1}{Footnote to the title with the `thankstext' command.}
 
 \begin{aug}
@@ -32,7 +34,7 @@
     \address{Address of the First Author\\
              Country\\
              \printead{e1}}
-    \author{\fnms{Second} \snm{Author}\ead[label=e2]{second@somewhere.com}}
+    \author{\fnms{Second} \snm{Author}\ead[label=e2]{second@somewhere.com}},
     \address{Address of the Second Author\\
              Country\\
              \printead{e2}}
@@ -44,7 +46,7 @@
              Country\\
              \printead{e3}\\
              \printead{u1}}
-    \thankstext{t2}{Corresponding author.}
+    \thankstext{t2}{Footnote to the author with the `thankstext' command.}
 \end{aug}
 %
 \received{\sday{3} \smonth{1} \syear{2018}}
@@ -72,6 +74,7 @@ your own.
 \kwd{\LaTeXe}
 \end{keyword}
 
+%\tableofcontents
 \end{frontmatter}
 
 \section{Ordinary text}
@@ -100,10 +103,17 @@ number of things that you have to do differently when preparing
 an input file than if you were just typing the document directly.
 Quotation marks like       ``this''
 have to be handled specially, as do quotes within quotes:
-       ``\,`this'
+       ``\,`this'          % \, separates the double and single quote.
     is what I just
     wrote, not  `that'\,''.
 
+Dashes come in three sizes: an
+       intra-word
+dash, a medium dash for number ranges like
+       1--2,
+and a punctuation
+       dash---like
+this.
 
 A sentence-ending space should be larger than the space between words
 within a sentence.  You sometimes have to type special commands in
@@ -114,7 +124,12 @@ following sentence.
 You should check the spaces after periods when reading your output to
 make sure you haven't forgotten any special cases.
 Generating an ellipsis
-       \ldots\
+       \ldots\    % `\ ' needed because TeX ignores spaces after
+                  % command names like \ldots made from \ + letters.
+%
+% Note how a `%' character causes TeX to ignore the
+% end of the input line, so these blank lines do not
+% start a new paragraph.
 with the right spacing around the periods
 requires a special  command.
 
@@ -123,7 +138,11 @@ special commands to generate them.  These characters include the
 following:
        \& \% \# \{ and~\}.
 
-In printing, text is emphasized by using an        {\em italic\/} type style.
+In printing, text is emphasized by using an        
+{\em italic\/}    % The \/ command produces the tiny extra space that
+                  % should be added between a slanted and a following
+                  % unslanted letter.
+type style.
 
 \begin{em}
    A long segment of text can also be emphasized in this way.  Text within
@@ -135,8 +154,9 @@ In printing, text is emphasized by using an        {\em italic\/} type style.
 
 It is sometimes necessary to prevent \TeX\ from breaking a line where
 it might otherwise do so.  This may be at a space, as between the
-``Mr.'' and ``Jones'' in        ``Mr.~Jones'',
-or within a word -- especially when the word is a symbol like
+``Mr.'' and ``Jones'' in
+``Mr.~Jones'',    % ~ produces an unbreakable interword space.
+or within a word---especially when the word is a symbol like
        \mbox{\em itemnum\/}
 that makes little sense when hyphenated across
        lines.
@@ -145,7 +165,8 @@ that makes little sense when hyphenated across
        \( x-3y = 7 \)
 or
        \( a_{1} > x^{2n} / y^{2n} > x' \).
-Remember that a letter like       $x$
+Remember that a letter like
+       $x$    % $ ... $  and  \( ... \)  are equivalent
 is a formula when it denotes a mathematical symbol, and should
 be treated as one.
 
@@ -282,12 +303,12 @@ and also in Table~\ref{parset}.
 A major
 point of difference lies in the value of the specific production rate $\pi$ for
 large values of the specific growth rate $\mu$.
-Already in the early publications \cite{1,2,3}
+Already in the early publications \cite{r1,r2,r3}
 it appeared that high glucose
 concentrations in the production phase are well correlated with a
 low penicillin yield (the
 `glucose effect'). It has been confirmed recently
-\cite{1,2,3,4}
+\cite{r1,r2,r3,r4}
 that
 high glucose concentrations inhibit the synthesis of the enzymes of the
 penicillin pathway, but not the actual penicillin biosynthesis.
@@ -295,7 +316,7 @@ In other words, glucose represses (and not inhibits) the penicillin
 biosynthesis.
 
 These findings do not contradict the results of
-\cite{1} and of \cite{4} which were obtained for
+\cite{r5} and of \cite{r6} which were obtained for
 continuous culture fermentations.
 Because for high values of the specific
 growth rate $\mu$ it is most likely (as shall be discussed below) that
@@ -310,9 +331,9 @@ They also reported a value $\mu_{x} \approx 0.095$
 h$^{-1}$, so that for their experiments $\mu/\mu_{x}$ is in the range
 of $0.24$ to $0.9$.
 Substituting $K _M$ in Eq. (\ref{cs}) by
-the value $K_{M}=1$ g/L as used by \cite{1}, one finds
+the value $K_{M}=1$ g/L as used by \cite{r1}, one finds
 with the above equation $0.3 < C_{s} < 9$ g/L. This agrees well with
-the work of \cite{4}, who reported that penicillin biosynthesis
+the work of \cite{r7}, who reported that penicillin biosynthesis
 repression only occurs at glucose concentrations from $C_{s}=10$ g/L on.
 The conclusion is that the glucose concentrations in the experiments of
 Pirt and Rhigelato probably were too low for glucose repression to be
@@ -322,11 +343,12 @@ are not detailed sufficiently to permit a similar analysis.
 \begin{table}
 \centering
 \tablewidth=70mm
-\caption{Parameter sets used by Bajpai and Reu\ss}\label{parset}
+\caption{Parameter sets used by Bajpai and Reu\ss are not detailed sufficiently to permit a similar analysis}
+\label{parset}
 \begin{tabular*}{\tablewidth}{@{\extracolsep{\fill}}lrll@{}}
 \hline
 \hline
-\multicolumn{2}{l}\textit{Parameter} & \textit{Set 1} & \textit{Set 2}\\
+\multicolumn{2}{@{}l}{\textit{Parameter}} & \textit{Set 1} & \textit{Set 2}\\
 \hline
 $\mu_{x}$           & [h$^{-1}$]  & 0.092       & 0.11          \\
 $K_{x}$             & [g/g DM]     & 0.15        & 0.006         \\
@@ -347,11 +369,11 @@ differences between time constants for the two regulation mechanisms
 relatively very long fermentation times, and therefore proposed a Haldane
 expression for $\pi$.
 
-It is interesting that simulations with the \cite{4} model for the
+It is interesting that simulations with the \cite{r4} model for the
 initial conditions given by these authors indicate that, when the
 remaining substrate is fed at a constant rate, a considerable and
 unrealistic amount of penicillin is
-produced when the glucose concentration is still very high \cite{2,3,4}.
+produced when the glucose concentration is still very high \cite{r2,r3,r4}.
 Simulations with the Bajpai and Reu\ss\ model correctly predict almost
 no penicillin production in similar conditions.
 
@@ -392,6 +414,20 @@ and
     G = \frac{P_{\rm opt} - P_{\rm ref}}{P_{\rm ref}} \mbox{\ }100 \mbox{\ }(\%).
 \end{equation}
 
+Two equation arrays:
+\begin{align}
+  \frac{dS}{dt} & =  - \sigma X + s_{F} F\\
+  \frac{dX}{dt} & =    \mu    X\\
+  \frac{dP}{dt} & =    \pi    X - k_{h} P\\
+  \frac{dV}{dt} & =    F
+\end{align}
+and
+\begin{align}
+ \mu_{\rm substr} & =  \mu_{x} \frac{C_{s}}{K_{x}C_{x}+C_{s}}  \\
+ \mu              & =  \mu_{\rm substr} - Y_{x/s}(1-H(C_{s}))(m_{s}+\pi /Y_{p/s}) \\
+ \sigma           & =  \mu_{\rm substr}/Y_{x/s}+ H(C_{s}) (m_{s}+ \pi /Y_{p/s})
+\end{align}
+
 Long equation:
 \begin{align}
 \SM u{C^+}\FL{\FR{w'(u)}m}&\le \FL{\SM u{C^+} \FR{w'(u)}m}\nonumber\\ &\le
@@ -413,7 +449,6 @@ f(S)-f(T) =    {}  &  D_k^T(1+C_{\geq k+1}^T)(1 + C) + C_k^T(1+D_{\geq k+1}^T)(1
 =     {} &   (D_k^T-C_k^T)[(1+C_{\geq k+1})(1+C)-(1+D_{\geq
 k+1}^T)(1+D)]>0.
 \end{align*}
-
 
 \appendix
 
@@ -451,46 +486,39 @@ Sample of cross-reference to the formula \ref{path} in Appendix~\ref{app}.
 
 \section*{Acknowledgements}
 And this is an acknowledgements section with a heading that was produced by the
-\verb|\|section* command. Thank you all for helping me writing this
+\verb|\section*| command. Thank you all for helping me writing this
 \LaTeX\ sample file.
 
 \begin{thebibliography}{9}
 
-%b1 ###
-\bibitem{1} C. A. Athanasiadis, On a refinement of the generalized
+\bibitem{r1} C. A. Athanasiadis, On a refinement of the generalized
 Catalan numbers for Weyl groups. \textit{Trans. AMS} \textbf{357} (2005), 179--196.
 \MR{2098091}
 
-%b2 ###
-\bibitem{2} D. Bessis, The dual braid monoid,
+\bibitem{r2} D. Bessis, The dual braid monoid,
 \textit{Ann. Sci. \'Ecole Norm. Sup.} S\'er. IV \textbf{36} (2003), 647--683.
 \MR{2032983}
 
-%b3 ###
-\bibitem{3} N. Bourbaki,
+\bibitem{r3} N. Bourbaki,
 \textit{Groupes et alg\`ebres de Lie}, Chapitres 4, 5 et 6, Hermann,
 Paris (1975).
 \MR{0453824}
 
-%b4 ###
-\bibitem{4} P. Cellini and P. Papi,
-ad-nilpotent ideals of a Borel subalgebra. \textit{J. Algebra} \textbf{225} (2000), 130--141.
+\bibitem{r4} P. Cellini and P. Papi,
+ad-nilpotent ideals of a Borel subalgebra. \textit{J.~Algebra} \textbf{225} (2000), 130--141.
 \MR{1743654}
 
-%b5 ###
-\bibitem{5} P. Cellini and P. Papi,
-ad-nilpotent ideals of a Borel subalgebra II. \textit{J. Algebra} \textbf{258} (2002), 112--121.
+\bibitem{r5} P. Cellini and P. Papi,
+ad-nilpotent ideals of a Borel subalgebra II. \textit{J.~Algebra} \textbf{258} (2002), 112--121.
 \MR{1958899}
 
-%b6 ###
-\bibitem{8}
+\bibitem{r6}
 R. P. Dilworth,  Proof of a conjecture on finite modular
 lattices.
 \textit{Annals Math.} \textbf{60} (1954), 359--364.
 \MR{0063348}
 
-%b7 ###
-\bibitem{9}
+\bibitem{r7}
 J. E. Humphreys,  \textit{Reflection Groups and Coxeter Groups}.
 Cambridge Univ. Press. (1992).
 \MR{1066460}
