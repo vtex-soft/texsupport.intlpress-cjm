@@ -31,7 +31,7 @@ The following files are given in the repository (or directly in `*.zip` archive)
 
 ## Setup
 * Clone the repository or download the `*.zip` archive. Rename the package to `<your-project-name>`.
-* Install `ipart.cls`, `ipart-layout-*.sty`, `imsart-number.bst`, `imsart-nameyear.bst` in your TeX system (suggested directory: `ipart`).
+* Install `ipart.cls`, `ipart-layout-main.sty`, `imsart-number.bst`, `imsart-nameyear.bst` in your TeX system (suggested directory: `ipart`).
 * Use the file `cjm-template.tex` to start your article as a template.
 * Use the file `cjm-sample.tex` as a reference for how to prepare a topmatter of your article.
 
