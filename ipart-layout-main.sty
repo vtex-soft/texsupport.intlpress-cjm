@@ -17,7 +17,7 @@
 %%
 \NeedsTeXFormat{LaTeX2e}
 \def\ipfmt@name{ipart-layout-main}
-\def\ipfmt@version{2020/10/14 v2.0.1}
+\def\ipfmt@version{2022/12/02 v2.0.2}
 \ProvidesPackage{\ipfmt@name}
     [\ipfmt@version INTLPRESS journal main layout style]
 
@@ -248,18 +248,41 @@
 \def\pagenumber@size{\normalsize\upshape}
 
 \def\ps@ipheadings{%
+    \def\pseudo@even@head@line{%
+        \runninghead@size
+        {\pagenumber@size 000}%
+        \space\leftmark\space
+        {\pagenumber@size 000}%
+        }%
+    \def\pseudo@odd@head@line{%
+        \runninghead@size
+        {\pagenumber@size 000}%
+        \space\rightmark\space
+        {\pagenumber@size 000}%
+        }%
     \def\@oddfoot{}%
     \let\@evenfoot\@oddfoot
     \def\@evenhead{%
+        \check@head@line{even}{author}%
         \runninghead@size
         \rlap{\pagenumber@size\thepage}%
         \hfill\leftmark\hfill
         }%
     \def\@oddhead{%
+        \check@head@line{odd}{title}%
         \runninghead@size
         \hfill\rightmark\hfill
         \llap{\pagenumber@size\thepage}%
         }%
+    }
+\def\check@head@line#1#2{%
+    \bgroup
+        \settowidth\@tempdima{\csname pseudo@#1@head@line\endcsname}%
+        \ifdim\@tempdima>\textwidth\relax
+            \ClassError{ipart}{Running #2 is too long!}{}%
+            \global\def\check@head@line##1##2{\relax}%
+        \fi
+    \egroup
     }
 
 \def\copyright@size{\fontsize{8}{10}\selectfont\raggedright}
