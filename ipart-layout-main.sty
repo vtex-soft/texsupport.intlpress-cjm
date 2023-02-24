@@ -17,7 +17,7 @@
 %%
 \NeedsTeXFormat{LaTeX2e}
 \def\ipfmt@name{ipart-layout-main}
-\def\ipfmt@version{2023/02/23 v2.0.3}
+\def\ipfmt@version{2023/02/24 v2.0.4}
 \ProvidesPackage{\ipfmt@name}
     [\ipfmt@version INTLPRESS journal main layout style]
 
@@ -1090,9 +1090,9 @@
             \@latex@error{Error: there are no address with number '#1'!}{??}%
             }{%
                 \address@font
-                \begin{tabular}[t]{@{}l@{}}
+                \begin{tabular}[t]{@{}p{\textwidth}@{}}
                     \expandafter\expandafter\expandafter\csname @author@\@tmp\endcsname\\
-                    \expandafter\expandafter\expandafter\the\csname @address@\@tmp\endcsname
+                    \raggedright\expandafter\expandafter\expandafter\the\csname @address@\@tmp\endcsname
                 \end{tabular}%
                 }%
     \egroup
