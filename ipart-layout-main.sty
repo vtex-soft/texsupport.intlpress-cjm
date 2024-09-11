@@ -17,7 +17,7 @@
 %%
 \NeedsTeXFormat{LaTeX2e}
 \def\ipfmt@name{ipart-layout-main}
-\def\ipfmt@version{2023/02/24 v2.0.4}
+\def\ipfmt@version{2024/02/20 v2.0.5}
 \ProvidesPackage{\ipfmt@name}
     [\ipfmt@version INTLPRESS journal main layout style]
 
@@ -67,6 +67,11 @@
 \RequirePackage{etoolbox}
 \RequirePackage{keyval}
 \RequirePackage{afterpackage}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+
+\DeclareFontFamily{OMX}{lmex}{}
+\DeclareFontShape{OMX}{lmex}{m}{n}{<-> lmex10}{}
 
 \def\do@option@list#1#2{%
     \@for\curr@option:={#2}\do{%
@@ -229,12 +234,12 @@
 \def\tiny{\@setfontsize\tiny{6\p@}{7\p@}}
 \def\little{\@setfontsize\little{5\p@}{6\p@}}
 \def\large{\@setfontsize\large{12\p@}{14\p@}}
-\def\Large{\@setfontsize\Large{14\p@}{16\p@}}
-\def\LARGE{\@setfontsize\LARGE{16\p@}{18\p@}}
+\def\Large{\@setfontsize\Large{14.4\p@}{16\p@}}
+\def\LARGE{\@setfontsize\LARGE{17.28\p@}{18\p@}}
 \def\huge{\@setfontsize\huge{24\p@}{26\p@}}
 \def\Huge{\@setfontsize\Huge{25\p@}{27\p@}}
 
-\PassOptionsToPackage{leqno,cmex10}{amsmath}
+\PassOptionsToPackage{leqno}{amsmath}
 \RequirePackage{amsmath}
 \allowdisplaybreaks
 \RequirePackage{amsthm}
@@ -357,8 +362,8 @@
         }%
     }
 \let\@arxiv\relax
-%%  http://arxiv.org/abs/math.PR/0603300
-\def\arxiv@base{http://arxiv.org/abs/}
+%%  https://arxiv.org/abs/math.PR/0603300
+\def\arxiv@base{https://arxiv.org/abs/}
 
 %%  firstpage, lastpage, pagerange
 \newcounter{firstpage}
@@ -916,7 +921,7 @@
 %%  ======= EMAIL, URL =======
 %%
 %%  \ead, \printead
-\def\email@text{\textit{E-mail address:} }
+\def\email@text{\normalfont\textit{E-mail address:} }
 \def\url@text{url: }
 \def\fullurl@text{url: }
 \def\ead@sep{;~}
@@ -1118,7 +1123,7 @@
     }
 
 %%  Invoke \printaddresses at end of document:
-\preto\enddocument{\printaddresses}
+\AtEndDocument{\printaddresses}
 %%
 %%  ======= DEDICATION =======
 %%
@@ -1203,8 +1208,8 @@
 \newdimen\pre@kwd@depth
 
 \def\keyword@AMS{AMS 2000 subject classifications:}
-\def\keyword@MSC{MSC 2010 subject classifications:}
-\expandafter\def\csname keyword@MSC2010\endcsname{MSC 2010 subject classifications:}
+\def\keyword@MSC{MSC 2020 subject classifications:}
+\expandafter\def\csname keyword@MSC2020\endcsname{MSC 2020 subject classifications:}
 \def\keyword@KWD{Keywords and phrases:}
 
 %%  raktas=class
@@ -1400,7 +1405,7 @@
         \def\@svsechd{#4{\hskip #1\relax #5\aftersec@dot}}%
     \fi
     \ifnum\ssection@level=1%
-        \phantomsection\addcontentsline{toc}{section}{#5}%
+        \addcontentsline{toc}{section}{#5}%
     \fi
     \@xsect{#3}%
     }
