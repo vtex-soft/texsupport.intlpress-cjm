@@ -12,7 +12,7 @@
 ## About
 
 Author support service provides LaTeX style files and `*.tex` file templates designed for International Press journal
-[Cambridge Journal of Mathematics (CJM)](http://www.intlpress.com/CJM/) articles.
+[Cambridge Journal of Mathematics (CJM)](http://www.intlpress.com/CJM) articles.
 
 ## Package content
 
