@@ -17,7 +17,7 @@
 %%
 \NeedsTeXFormat{LaTeX2e}
 \def\ipfmt@name{ipart-layout-main}
-\def\ipfmt@version{2024/02/20 v2.0.5}
+\def\ipfmt@version{2025/09/03 v2.0.8}
 \ProvidesPackage{\ipfmt@name}
     [\ipfmt@version INTLPRESS journal main layout style]
 
@@ -245,6 +245,9 @@
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
 \RequirePackage{amsfonts}
+\ifdefined\noaccents@
+    \noaccents@
+\fi
 %%
 %%  ======= HEADERS =======
 %%
